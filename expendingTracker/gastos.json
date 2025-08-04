@@ -1,0 +1,20 @@
+[
+{
+        "data": "01/01/2024",
+        "nome": "alimentacao",
+        "valor": 80.50,
+        "descricao": "compras no mercado"
+    },
+    {
+        "data": "02/01/2024",
+        "nome": "transporte",
+        "valor": 60.00,
+        "descricao": "passagem de onibus"
+    },
+    {
+        "data": "03/01/2024",
+        "nome": "moradia",
+        "valor": 1500.00,
+        "descricao": "aluguel do apartamento"
+    }
+]
