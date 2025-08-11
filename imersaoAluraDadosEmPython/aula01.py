@@ -1,11 +1,9 @@
 from ast import match_case
 import pandas
 
-
 urlDataBase = "https://raw.githubusercontent.com/guilhermeonrails/data-jobs/refs/heads/main/salaries.csv"
 
 dataframe = pandas.read_csv(urlDataBase)
-
 
 print("Escolha uma opção:")
 print("1 - Exibir as primeiras linhas do DataFrame")
@@ -23,11 +21,13 @@ match option:
         print(dataframe.head(3))
 
     case "2":
-        print("\nO método info exibe um resumo do DataFrame, incluindo tipos de dados, valores não nulos e uso de memória.")
+        print(
+            "\nO método info exibe um resumo do DataFrame, incluindo tipos de dados, valores não nulos e uso de memória.")
         print(dataframe.info())
 
     case "3":
-        print("\nO método describe retorna estatísticas descritivas para colunas numéricas e resumos para colunas categóricas.")
+        print(
+            "\nO método describe retorna estatísticas descritivas para colunas numéricas e resumos para colunas categóricas.")
         print(dataframe.describe())
 
     case "4":

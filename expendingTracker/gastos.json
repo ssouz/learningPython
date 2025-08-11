@@ -1,20 +1,26 @@
 [
-{
+    {
         "data": "01/01/2024",
         "nome": "alimentacao",
-        "valor": 80.50,
+        "valor": 80.5,
         "descricao": "compras no mercado"
     },
     {
         "data": "02/01/2024",
         "nome": "transporte",
-        "valor": 60.00,
+        "valor": 60.0,
         "descricao": "passagem de onibus"
     },
     {
         "data": "03/01/2024",
         "nome": "moradia",
-        "valor": 1500.00,
+        "valor": 1500.0,
         "descricao": "aluguel do apartamento"
+    },
+    {
+        "data": "12/02/2025",
+        "nome": "pizza",
+        "valor": 150.0,
+        "descricao": "test"
     }
 ]
