@@ -1,13 +1,12 @@
 from ast import match_case
 import pandas
 
-# Fonte dos dados
+
 urlDataBase = "https://raw.githubusercontent.com/guilhermeonrails/data-jobs/refs/heads/main/salaries.csv"
 
-# Carrega o DataFrame
 dataframe = pandas.read_csv(urlDataBase)
 
-# Menu de opções
+
 print("Escolha uma opção:")
 print("1 - Exibir as primeiras linhas do DataFrame")
 print("2 - Exibir resumo do DataFrame (info)")
@@ -41,8 +40,8 @@ match option:
         print("\nEvite traduzir colunas diretamente, pois modifica o DataFrame original.")
         print("Colunas originais:", dataframe.columns)
 
-        # Tradução das colunas
-        columnTranslation = {
+        # Tradução
+        traducaoDeColunas = {
             'work_year': 'ano',
             'experience_level': 'senioridade',
             'employment_type': 'tipo_emprego',
@@ -55,31 +54,24 @@ match option:
             'company_location': 'empresa',
             'company_size': 'tamanho_empresa'
         }
-        dataframe.rename(columns=columnTranslation, inplace=True)
-        print("Colunas traduzidas:", dataframe.columns)
-
-        # Contagem de valores únicos
-        print("\nContagem de valores em 'tamanho_empresa':")
-        print(dataframe['tamanho_empresa'].value_counts())
-
-        # Tradução dos valores de senioridade
+        traducaoTamanhoDaEmpresa = {
+            'L': 'Grande porte',
+            'M': 'Médio porte',
+            'S': 'Pequeno porte'
+        }
         traducaoSenioridade = {
             'SE': 'Senior',
             'MI': 'Junior',
             'EN': 'Pleno',
             'EX': 'Executivo'
         }
+        dataframe.rename(columns=traducaoDeColunas, inplace=True)
+        dataframe['tamanho_empresa'] = dataframe['tamanho_empresa'].map(traducaoTamanhoDaEmpresa)
         dataframe['senioridade'] = dataframe['senioridade'].map(traducaoSenioridade)
+
+        print("Colunas traduzidas:", dataframe.columns)
+        print("\nContagem de valores em 'tamanho_empresa':")
+        print(dataframe['tamanho_empresa'].value_counts())
         print("\nContagem de valores em 'senioridade':")
         print(dataframe['senioridade'].value_counts())
 
-    case "6":
-        # Tradução dos valores de tamanho da empresa
-        traducaoTamanhoDaEmpresa = {
-            'L': 'Grande porte',
-            'M': 'Médio porte',
-            'S': 'Pequeno porte'
-        }
-        dataframe["company_size"] = dataframe["company_size"].map(traducaoTamanhoDaEmpresa)
-        print("\nPrimeiras linhas do DataFrame com tamanho da empresa traduzido:")
-        print(dataframe.head())
